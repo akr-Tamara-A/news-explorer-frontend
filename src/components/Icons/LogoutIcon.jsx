@@ -1,5 +1,6 @@
 import React from 'react';
 
+/** Компонент иконка "Выйти" */
 function LogoutIcon () {
   return (
     <svg

@@ -1,0 +1,144 @@
+.card {
+  height: 576px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: .2s ease box-shadow;
+  text-decoration: none;
+  color:#1A1B22;
+}
+
+.card:hover, .card:focus {
+  outline: none;
+  box-shadow: 0 32px 48px -24px rgba(8, 29, 45, 0.1);
+}
+
+.card:focus .card__title {
+  text-decoration: underline 3px solid #347EFF;
+}
+
+.card:visited {
+  color: #1A1B22;
+}
+
+.card__header {
+  height: 272px;
+  overflow: hidden;
+  background-color: #B6BCBF;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.card__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.card__body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.card__date {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #B6BCBF;
+  margin: 0 0 12px;
+}
+
+.card__info {
+  flex-grow: 1;
+}
+
+.card__title {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #1A1B22;
+  margin: 0 0 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__tagline {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #1A1B22;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__source {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #B6BCBF;
+  margin: 0;
+}
+
+.card__button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    height: 420px;
+    border-radius: 16px;
+  }
+
+  .card__title {
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  .card__source {
+    line-height: 20px;
+  }
+
+  .card__header {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card__button {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card__button {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card__button {
+    top: 16px;
+    right: 16px;
+  }
+}

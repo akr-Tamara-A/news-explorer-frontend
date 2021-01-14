@@ -1,5 +1,6 @@
 import React from 'react';
 
+/** Компонент иконка "Закрыть" */
 function CloseIcon () {
   return (
     <svg

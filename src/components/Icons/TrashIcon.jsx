@@ -1,5 +1,6 @@
 import React from 'react';
 
+/** Компонент иконка "Удалить" */
 function TrashIcon() {
   return (
     <svg

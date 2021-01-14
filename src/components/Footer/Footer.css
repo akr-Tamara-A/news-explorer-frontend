@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-areas: "copyright links";
+  min-height: 80px;
+  align-items: center;
 }
 
 .footer__copyright {
@@ -28,29 +30,6 @@
 
 .footer__list_type_links {
   margin-right: 16px;
-}
-
-.footer__item {
-
-}
-
-.footer__link {
-  color: #000;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  padding: 0 12px;
-  transition: .2s ease;
-}
-
-.footer__link:hover, .footer__link:focus {
-  color: #347EFF;
-}
-
-.footer__link:focus {
-  outline: none;
 }
 
 @media screen and (max-width: 720px) {

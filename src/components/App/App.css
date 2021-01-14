@@ -1,0 +1,40 @@
+.page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.page__section {
+  padding-left: 104px;
+  padding-right: 104px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1000px) {
+  .page__section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .page__section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page__section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

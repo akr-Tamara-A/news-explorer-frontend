@@ -1,0 +1,77 @@
+.link {
+  text-decoration: none;
+  color: inherit;
+  transition: .2s ease;
+  display: inline-block;
+  border-color: transparent;
+}
+
+.link:hover, .link:focus {
+  color: #347EFF;
+}
+
+.link:focus {
+  outline: none;
+}
+
+.link_active {
+  border-color: inherit;
+}
+
+.link_notActive {
+  border-color: transparent;
+}
+
+.link__place_footer {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 12px;
+}
+
+.link__place_header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 26px 0;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+}
+
+.link__place_header:hover {
+  color: inherit;
+}
+
+.link__place_brand {
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.link__place_notFound {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 23px 0;
+}
+
+@media screen and (max-width: 900px) {
+  .link__place_header, .link__place_notFound {
+    font-size: 16px;
+    padding: 0;
+    margin: 36px 0 0;
+  }
+
+  .link__place_brand {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .link_active {
+    border-bottom: none;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 
+/** Компонент иконка "Меню" */
 function MenuIcon() {
   return (
     <svg

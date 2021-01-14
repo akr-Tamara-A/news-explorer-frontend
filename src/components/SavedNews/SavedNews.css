@@ -1,0 +1,38 @@
+.searchResults {
+  background-color: #F5F6F7;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchResults__result {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchResults__answer {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #1A1B22;
+  margin: 0 0 16px;
+}
+
+.searchResults__clarification {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #B6BCBF;
+  margin: 0;
+  width: 340px;
+  text-align: center;
+}

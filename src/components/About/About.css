@@ -1,6 +1,7 @@
 .about {
   display: flex;
-  padding: 80px 0;
+  padding-top: 88px;
+  padding-bottom: 80px;
   color: #1A1B22;
 }
 
@@ -8,10 +9,6 @@
   width: 464px;
   height: 464px;
   margin-right: 56px;
-}
-
-.about__ {
-
 }
 
 .about__title {
@@ -32,7 +29,8 @@
 
 @media screen and (max-width: 1100px) {
   .about {
-    padding: 60px 0;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   
   .about__avatar {
@@ -44,7 +42,8 @@
 
 @media screen and (max-width: 900px) {
   .about {
-    padding: 40px 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   
   .about__avatar {
