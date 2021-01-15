@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+}
+
+.form__message {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  margin: 8px 0 0;
+}
+
+.form__submit {
+  margin: 13px 0 0;
+}

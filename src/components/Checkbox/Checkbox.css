@@ -1,0 +1,58 @@
+.checkbox {
+  color: #aaa;
+  cursor: pointer;
+}
+
+.checkbox__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  z-index: -1;
+}
+
+.checkbox__tooltip {
+  position: absolute;
+  right: 45px;
+  color: #1A1B22;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+  padding: 14px 8px;
+  margin: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  white-space: nowrap;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: .25s ease-out;
+  opacity: 0;
+}
+
+.checkbox:hover > .checkbox__tooltip {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.checkbox__styled {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.2s ease;
+}
+
+.checkbox__input:checked + .checkbox__styled {
+  color: #2F71E5;
+}
+
+.checkbox__input:hover + .checkbox__styled,
+.checkbox__input:focus + .checkbox__styled {
+  color: #1A1B22;
+}
+
+.checkbox__input:checked:hover + .checkbox__styled,
+.checkbox__input:checked:focus + .checkbox__styled {
+  color: #2F71E5;
+}

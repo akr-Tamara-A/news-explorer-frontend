@@ -1,0 +1,48 @@
+.header {
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header_theme_dark {
+  color: #fff;
+  background-image: url(../../images/hero__unsplash.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+
+.header_theme_light {
+  color: #000;
+  background-color: #fff;
+}
+
+.header__navbar {
+  display: flex;
+  align-items: center;
+}
+
+.header__button {
+  margin-left: 32px;
+}
+
+@media screen and (max-width: 900px) {
+  .header__button {
+    margin-left: 16px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .header__nav {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    z-index: 100;
+  }
+
+  .header__button {
+    margin: 40px 0 0;
+  }
+}
