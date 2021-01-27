@@ -4,32 +4,32 @@ import NewsCard from '../NewsCard/NewsCard';
 import Button from '../Button/Button';
 
 /** Компонент */
-function NewsCardList({ cards }) {
-  const [cardsAmount, setCardsAmount] = useState(3);
+function NewsCardList({ articles, ...rest }) {
+  const [articlesAmount, setArticlesAmount] = useState(3);
 
-  function showMoreCards() {
-    setCardsAmount(cardsAmount + 3);
+  function showMoreArticles() {
+    setArticlesAmount(articlesAmount + 3);
   }
 
   /** Разметка */
   return (
     <>
       <ul className="cardsist">
-        { cards ? 
-          cards.slice(0, cardsAmount).map(card => {
+        { articles ? 
+          articles.slice(0, articlesAmount).map((article, index) => {
             return (
-              <NewsCard cardData={card} key={`${card.source.name}${card.title}`} />
+              <NewsCard cardData={article} key={index} index={index} {...rest} />
             )
           })
           : null
         }
       </ul>
       {
-        (cardsAmount < cards.length) 
+        (articlesAmount < articles.length) 
         ? <Button 
             type="text" 
             mainStyle="more"
-            onClick={() => showMoreCards()}
+            onClick={() => showMoreArticles()}
           >
             Показать еще
           </Button>

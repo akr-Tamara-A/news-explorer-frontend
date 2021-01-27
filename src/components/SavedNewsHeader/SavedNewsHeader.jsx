@@ -1,22 +1,16 @@
 import './SavedNewsHeader.css';
-import React, { useEffect, useState, useContext } from 'react';
-import { savedCardsData } from '../../utils/savedData';
+import React, { useEffect, useContext } from 'react';
 import { toUpperCase } from '../../utils/utils';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 /** Компонент */
-function SavedNewsHeader(props) {
+function SavedNewsHeader({ articles }) {
   const currentUser = useContext(CurrentUserContext);
-
-  const data = savedCardsData;
-  const newsAmount = data.length;
-
-  const [usedKeywords, setUsedKeywords] = useState([]);
-  const [isKeywords, setIsKeywords] = useState(false);
+  const newsAmount = articles.length;
   
   useEffect(() => {
       createTemplate();
-  }, [data]);
+  }, [articles]);
 
   /** Создание шаблона/ов для вставки в вёрстку */
   const createTemplate = () => {
@@ -47,23 +41,24 @@ function SavedNewsHeader(props) {
     const keywordsAmount = sortedKeywordsArr.length;
     const keywordsArr = [];
 
-    if (keywordsAmount > 0) {
-      setIsKeywords(true);
-    } else {
-      setIsKeywords(false);
-    }
-
     if (keywordsAmount > 0 && keywordsAmount <= 3) {
       sortedKeywordsArr.forEach((keyword) => {
         keywordsArr.push(keyword[0]);
       })
     }
 
-    if (keywordsAmount > 3) {
+    if (keywordsAmount === 4) {
       sortedKeywordsArr.slice(0, 2).forEach((keyword) => {
         keywordsArr.push(keyword[0]);
       });
-      keywordsArr.push(`${keywordsAmount - 2}-м другим`);
+      keywordsArr.push(`${keywordsAmount - 3}-м другом`);
+    }
+
+    if (keywordsAmount > 4) {
+      sortedKeywordsArr.slice(0, 2).forEach((keyword) => {
+        keywordsArr.push(keyword[0]);
+      });
+      keywordsArr.push(`${keywordsAmount - 3}-м другим`);
     }
     return keywordsArr;
   };
@@ -72,7 +67,7 @@ function SavedNewsHeader(props) {
   const calcKeywords = () => {
     const keywordsArr = [];
 
-    data.forEach((card) => {
+    articles.forEach((card) => {
       if (keywordsArr.length === 0) {
         keywordsArr[0] = [];
         keywordsArr[0][0] = card.keyword.toLowerCase();
@@ -97,6 +92,25 @@ function SavedNewsHeader(props) {
     return arr.sort((arrA, arrB) => arrB[1] - arrA[1]);
   };
 
+  /**  */
+  const declination = (number) => {
+    number = String(number);
+    const lastDigit = +number[number.length - 1];
+
+    let string = "сохраненных статей"
+
+    if ((lastDigit === 1) && (lastDigit !== 11)) {
+      string = "сохраненная статья"
+    }
+
+    if (((lastDigit === 2) && (lastDigit !== 12)) ||
+        ((lastDigit === 3) && (lastDigit !== 13)) ||
+        ((lastDigit === 4) && (lastDigit !== 14))) {
+      string = "сохраненные статьи"
+    }
+    return string;
+  }
+
   /** Разметка */
   return (
     <section className="savedNewsHeader page__section">
@@ -104,7 +118,7 @@ function SavedNewsHeader(props) {
         Сохранённые статьи
       </p>
       <p className="savedNewsHeader__message">
-        {`${currentUser.name}, у вас ${newsAmount} сохранённых статей`}
+        {`${currentUser.name}, у вас ${newsAmount} ${declination(newsAmount)}`}
       </p>
     </section>
   );

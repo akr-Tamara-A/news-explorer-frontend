@@ -18,3 +18,15 @@
 .form__submit {
   margin: 13px 0 0;
 }
+
+@media screen and (max-width: 540px) {
+  .form {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .form {
+    width: 100%;
+  }
+}

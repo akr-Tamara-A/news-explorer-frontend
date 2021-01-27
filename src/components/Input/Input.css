@@ -1,7 +1,7 @@
 .label {
   width: inherit;
-  height: 64px;
-  margin: 0 0 13px;
+  height: 72px;
+  margin: 0 0 16px;
   display: flex;
   flex-direction: column;
 }

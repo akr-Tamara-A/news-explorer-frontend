@@ -9,10 +9,8 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 function Navigation({ onLoginClick, isOpened, onSignOutClick }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const isLoggedIn = Object.keys(currentUser).length !== 0;
-
   function handleClick() {
-    isLoggedIn 
+    currentUser 
       ? onSignOutClick()
       : onLoginClick();
   }
@@ -26,13 +24,13 @@ function Navigation({ onLoginClick, isOpened, onSignOutClick }) {
             Главная
           </NavbarLink>
         </li>
-        {isLoggedIn ? (
+        {currentUser && (
           <li className="nav_item">
             <NavbarLink to="/saved-news" className="link__place_header">
               Сохраненные статьи
             </NavbarLink>
           </li>
-        ) : null}
+        )}
       </ul>
       
       <Button 
@@ -40,7 +38,7 @@ function Navigation({ onLoginClick, isOpened, onSignOutClick }) {
         mainStyle="header"
         onClick={handleClick}
       >
-        {isLoggedIn ? (
+        {currentUser ? (
           <>
             {currentUser.name}
             <LogoutIcon />

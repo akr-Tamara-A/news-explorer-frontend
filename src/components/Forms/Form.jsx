@@ -9,16 +9,17 @@ function Form({
   submitText,
   children,
   disabled,
-  onSubmit
+  onSubmit,
+  submitError
 }) {
   
   /** Разметка */
   return (
-    <form className="form" action="#" onSubmit={onSubmit}>
+    <form className="form" action="#" onSubmit={onSubmit} noValidate>
       {children}
 
       <p className="form__message">
-        Sefa fesbe bsese
+        {submitError && submitError}
       </p>
       <Button
         type="submit"

@@ -1,4 +1,3 @@
-import './NotFoundData.css';
 import React from 'react';
 import NotFoundIcon from '../Icons/NotFoundIcon';
 

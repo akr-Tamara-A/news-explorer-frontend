@@ -9,16 +9,24 @@
   color:#1A1B22;
 }
 
-.card:hover, .card:focus {
+.card__link {
+  text-decoration: none;
+  transition: .2s ease box-shadow;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.card__link:hover, .card__link:focus {
   outline: none;
   box-shadow: 0 32px 48px -24px rgba(8, 29, 45, 0.1);
 }
 
-.card:focus .card__title {
+.card__link:focus .card__title {
   text-decoration: underline 3px solid #347EFF;
 }
 
-.card:visited {
+.card__link:visited {
   color: #1A1B22;
 }
 
@@ -72,6 +80,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  word-break: break-word;
 }
 
 .card__tagline {
@@ -85,6 +94,7 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  word-break: break-word;
 }
 
 .card__source {
@@ -93,6 +103,21 @@
   font-weight: 700;
   line-height: 22px;
   color: #B6BCBF;
+  margin: 0;
+}
+
+.card__keyword {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  color: #000;
+  border-radius: 8px;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 8px 12px;
   margin: 0;
 }
 

@@ -5,15 +5,50 @@ import MainPage from '../../pages/MainPage';
 import SavedNewsPage from '../../pages/SavedNewsPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { userData } from "../../utils/userData";
+import { api } from '../../utils/MainApi';
+import ProtectedRoute from "../../hocs/ProtectedRoute";
 
 /** Основной компонент */
 function App() {
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(null);
 
+  /** Проверка токена при монтировании */
   useEffect(() => {
-    setCurrentUser(userData);
-  }, [])
+    tokenCheck();
+  }, []);
+
+  /** */
+  const onLogin = () => {
+    tokenCheck();
+  }
+
+    /** Проверка токена */
+    const tokenCheck = () => {
+      const jwt = localStorage.getItem("jwt");
+      if (jwt) {
+        api
+        .checkToken(jwt)
+        .then((res) => {
+          if (res.message) {
+            setCurrentUser(null);
+          } else {
+            setCurrentUser(res);
+          }
+        })
+        .catch((err) => {
+          setCurrentUser(null);
+        });
+      } else {
+        setCurrentUser(null);
+      }
+    };
+
+    /** */
+    const onSignOut = () => {
+      localStorage.removeItem('jwt');
+      localStorage.removeItem('articles');
+      tokenCheck();
+    };
 
   /** Разметка */
   return (
@@ -22,13 +57,13 @@ function App() {
         <CurrentUserContext.Provider value={currentUser}>
           <Switch>
             <Route exact path='/'>
-              <MainPage />
+              <MainPage onLogin={onLogin} onSignOut={onSignOut} />
             </Route>
-            <Route path='/saved-news'>
-              <SavedNewsPage />
-            </Route>
+            <ProtectedRoute currentUser={currentUser} path='/saved-news' to="/">
+              <SavedNewsPage onSignOut={onSignOut} />
+            </ProtectedRoute>
             <Route path='*'>
-              <NotFoundPage />
+              <NotFoundPage onSignOut={onSignOut} />
             </Route>
           </Switch>
         </CurrentUserContext.Provider>

@@ -1,5 +1,5 @@
 import './Navbar.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import CloseIcon from '../Icons/CloseIcon';
 import MenuIcon from '../Icons/MenuIcon';
@@ -19,9 +19,26 @@ function Navbar({ theme, onLoginClick, onSignOutClick }) {
     setIsOpened(true);
   }
 
+  useEffect(() => {
+    document.addEventListener('keydown', handleEsc);
+    return () => document.removeEventListener('keydown', handleEsc);
+  }, [isOpened]);
+
+  const handleEsc = (e) => {
+    if (e.key !== 'Escape') return;
+    setIsOpened(false);
+  }
+
+
   /** Разметка */
   return (
-    <div className={`navbar page__section navbar__theme_${theme} ${isOpened && 'navbar_bg'}`}>
+    <div 
+      className={`navbar page__section navbar__theme_${theme} ${isOpened && 'navbar_bg'}`}
+      tabIndex={`${isOpened ? '0' : '-1'}`}
+      onClick={(e) => {
+        if (e.currentTarget === e.target) setIsOpened(false);
+      }}
+    >
       <div className="navbar__wrapper">
         <NavbarLink to="/" className="link__place_brand">
           NewsExplorer
