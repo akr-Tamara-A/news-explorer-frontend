@@ -6,7 +6,7 @@ import NavLink from '../Links/NavLink';
 import ExternalLink from '../Links/ExternalLink';
 
 /** Компонент футер */
-function Footer(props) {
+function Footer() {
 
   /** Разметка */
   return (
@@ -20,19 +20,19 @@ function Footer(props) {
             </NavLink>
           </li>
           <li className="footer__item">
-            <ExternalLink href="#" classNames="link__place_footer">
+            <ExternalLink href="https://praktikum.yandex.ru/" classNames="link__place_footer">
               Яндекс.Практикум
             </ExternalLink>
           </li>
         </ul>
         <ul className="footer__list">
           <li className="footer__item">
-            <ExternalLink href="#" classNames="link__place_footer">
+            <ExternalLink href="https://github.com/akr-Tamara-A" classNames="link__place_footer">
               <GithubIcon />
             </ExternalLink>
           </li>
           <li className="footer__item">
-            <ExternalLink href="#" classNames="link__place_footer">
+            <ExternalLink href="https://www.facebook.com/" classNames="link__place_footer">
               <FbIcon />
             </ExternalLink>
           </li>

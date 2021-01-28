@@ -1,9 +1,19 @@
 import './SearchForm.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../Button/Button';
 
 /** Компонент поиска новостей */
-function SearchForm() {
+function SearchForm({ onSubmit }) {
+  const [keyword, setKeyword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(keyword);
+  }
+
+  const handleChange = (e) => {
+    setKeyword(e.target.value);
+  };
 
   /** Разметка */
   return (
@@ -14,11 +24,17 @@ function SearchForm() {
       <p className="search__subtitle">
         Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.
       </p>
-      <form className="search__field">
+      <form className="search__field" onSubmit={handleSubmit}>
         <label className="search__label">
-          <input type="text" className="search__input" placeholder="Введите тему новости"></input>
+          <input 
+            type="text" 
+            className="search__input" 
+            placeholder="Введите тему новости" 
+            required 
+            onChange={handleChange} 
+          />
         </label>
-        <Button type="text" mainStyle="submit" subSubstyle="search" className="search__submit">
+        <Button type="submit" mainStyle="submit" subSubstyle="search" className="search__submit">
           Искать
         </Button>
       </form>

@@ -33,7 +33,6 @@
   }
 
   .nav_hidden {
-    /* display: none; */
     visibility: hidden;
     transform: scaleY(0);
     opacity: 0;

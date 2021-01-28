@@ -1,6 +1,6 @@
 import './Link.css';
 import React from 'react';
-import classNamesJoin from '../../utils/classNamesJoin';
+import { classNamesJoin } from '../../utils/utils';
 
 /** Компонент ссылка на внешний ресурс */
 function ExternalLink({ href, children, classNames }) {

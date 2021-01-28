@@ -6,13 +6,12 @@ import Navbar from '../components/Navbar/Navbar';
 import NotFound from '../components/NotFound/NotFound';
 
 /** Основной компонент */
-function NotFoundPage() {
-
+function NotFoundPage({ onSignOut }) {
   /** Основная разметка */
   return (
     <>
       <Header theme="light">
-        <Navbar theme="light" />
+        <Navbar theme="light" onSignOutClick={onSignOut}  />
       </Header>
 
       <Main>

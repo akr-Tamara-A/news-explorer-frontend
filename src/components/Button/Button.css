@@ -120,6 +120,14 @@
   top: -40px;
 }
 
+@media screen and (max-width: 540px) {
+  .button_style_popup {
+    position: absolute;
+    right: 0px;
+    top: -40px;
+  }
+}
+
 /* In card */
 
 .button_style_card {
@@ -160,6 +168,10 @@
 
 .button_style_card:hover, .button_style_card:focus {
   color: #1A1B22;
+}
+
+.button_style_checked {
+  color: #2F71E5;
 }
 
 /* Button 'More' */

@@ -1,16 +1,22 @@
 import './Input.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 /** Компонент инпут */
 function Input({ 
   title, 
-  message,
   isRequired,
+  inputData,
   ...rest
 }) {
 
-  function handleOnChange(e) {
-    // console.log(e.target.value);
+  const [validationMessage, setValidationMessage] = useState('');
+
+  /** Получение данных из инпута */
+  const handleChange = (e) => {
+    const {name, value, validity, validationMessage} = e.target;
+
+    inputData(name, value, validity.valid);
+    setValidationMessage(validationMessage);
   }
 
   /** Разметка */
@@ -22,11 +28,12 @@ function Input({
       <input 
         className="label__input"
         {...rest}
-        required="isRequired"
-        onChange={handleOnChange}
+        required={isRequired}
+        onChange={handleChange}
+        autoComplete="on"
       />
       <p className="label__message">
-        {message}
+        {validationMessage}
       </p>
     </label>
   );

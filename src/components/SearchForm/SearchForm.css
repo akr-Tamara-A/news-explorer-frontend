@@ -61,6 +61,7 @@
 }
 .search__input:focus {
   outline: none;
+  border-color: #2F71E5;
 }
 
 .search__submit {

@@ -2,36 +2,44 @@ import './Button.css';
 import React from 'react';
 
 /** Компонент кнопка */
-function Button(props) {
-  let className = 'button';
+function Button({ 
+  className, 
+  mainStyle, 
+  subSubstyle, 
+  type, 
+  id, 
+  children, 
+  onClick, 
+  ...rest 
+}) {
+  let buttonClassName = 'button';
 
-  if (props.className) {
-    className = `${className} ${props.className}`;
+  if (className) {
+    buttonClassName = `${buttonClassName} ${className}`;
   }
 
-  if (props.mainStyle) {
-    className = `${className} button_style_${props.mainStyle}`;
+  if (mainStyle) {
+    buttonClassName = `${buttonClassName} button_style_${mainStyle}`;
   }
 
-  if (props.subSubstyle) {
-    className = `${className} button_style_${props.subSubstyle}`;
+  if (subSubstyle) {
+    buttonClassName = `${buttonClassName} button_style_${subSubstyle}`;
   }
 
   function handleClick() {
-    props.onClick();
+    onClick();
   }
 
   /** Разметка */
   return (
     <button 
-      type={props.type} 
-      className={className} 
-      title={props.title} 
-      disabled={props.disabled} 
-      id={props.id ? props.id : null}
-      onClick={(props.type !== 'submit') ? handleClick : null}
+      className={buttonClassName} 
+      type={type} 
+      id={id ? id : null}
+      onClick={(type !== 'submit') ? handleClick : null}
+      {...rest}
     >
-      {props.children}
+      {children}
     </button>
   );
 };

@@ -61,8 +61,6 @@
 @media screen and (max-width: 900px) {
   .link__place_header, .link__place_notFound {
     font-size: 16px;
-    padding: 0;
-    margin: 36px 0 0;
   }
 
   .link__place_brand {
@@ -73,5 +71,10 @@
 @media screen and (max-width: 720px) {
   .link_active {
     border-bottom: none;
+  }
+
+  .link__place_header, .link__place_notFound {
+    padding: 0;
+    margin: 36px 0 0;
   }
 }
